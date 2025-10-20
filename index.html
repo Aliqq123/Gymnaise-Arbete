@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miniräknare & Funktionsplotter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Miniräknare</h2>
+      <input
+        id="calc-input"
+        type="text"
+        placeholder="Skriv uttryck"
+        style="width: 100%; padding: 8px; font-size: 16px; margin-bottom: 10px"
+      />
+      <div class="calc-grid">
+        <button>7</button><button>8</button><button>9</button
+        ><button>/</button> <button>4</button><button>5</button
+        ><button>6</button><button>*</button> <button>1</button
+        ><button>2</button><button>3</button><button>-</button>
+        <button>0</button><button>.</button><button>^</button><button>+</button>
+        <button colspan="2" onclick="calculate()">=</button>
+      </div>
+      <button style="width: 100%; margin-top: 10px" onclick="clearCalc()">
+        Rensa
+      </button>
+
+      <h2 style="margin-top: 20px">Funktionsplotter</h2>
+      <label for="func-input">Funktion f(x):</label>
+      <input
+        id="func-input"
+        type="text"
+        placeholder="t.ex. sin(x)"
+        style="width: 100%; padding: 8px; margin: 5px 0"
+      />
+      <label
+        >x från <input id="xmin" type="number" value="-10" style="width: 60px"
+      /></label>
+      <label
+        >till <input id="xmax" type="number" value="10" style="width: 60px"
+      /></label>
+      <button style="width: 100%; margin-top: 10px" onclick="plotFunction()">
+        Rita
+      </button>
+    </div>
+
+    <div class="plot-area">
+      <div id="plot"></div>
+    </div>
+
+    <script src="beh.js"></script>
+  </body>
+</html>

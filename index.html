@@ -21,7 +21,7 @@
         ><button>6</button><button>*</button> <button>1</button
         ><button>2</button><button>3</button><button>-</button>
         <button>0</button><button>.</button><button>^</button><button>+</button>
-        <button style="grid-column: span 2;" onclick="calculate()">=</button>
+        <button style="grid-column: span 2" onclick="calculate()">=</button>
       </div>
       <button style="width: 100%; margin-top: 10px" onclick="clearCalc()">
         Rensa
@@ -41,7 +41,7 @@
       <label
         >till <input id="xmax" type="number" value="10" style="width: 60px"
       /></label>
-      <button style="width: 100%; margin-top: 10px" onclick="">
+      <button style="width: 100%; margin-top: 10px" onclick="plotFunction()">
         Rita
       </button>
     </div>
@@ -51,5 +51,6 @@
     </div>
 
     <script src="beh.js"></script>
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
   </body>
 </html>

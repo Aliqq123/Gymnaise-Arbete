@@ -34,29 +34,51 @@ function clearCalc() {
 
 
 // -------------------------------------------------------------
-// --- Function Plotter with function-plot library -------------
+// --- Function Plotter ------------------------------------------
 // -------------------------------------------------------------
+
 function plotFunction() {
-    const f = document.getElementById("func-input").value;
-    const xmin = parseFloat(document.getElementById("xmin").value);
-    const xmax = parseFloat(document.getElementById("xmax").value);
+  const funcInput = document.getElementById('func-input').value;
+  const xMin = parseFloat(document.getElementById('xmin').value);
+  const xMax = parseFloat(document.getElementById('xmax').value);
 
-    // Clear previous plot
-    document.getElementById('plot').innerHTML = "";
+  if (!funcInput) {
+    alert('Vänligen ange en funktion.');
+    return;
+  }
 
+  // Skapa x-värden
+  const step = (xMax - xMin) / 200; // 200 punkter
+  let xValues = [];
+  let yValues = [];
+
+  for (let x = xMin; x <= xMax; x += step) {
+    xValues.push(x);
     try {
-        functionPlot({
-            target: '#plot',
-            width: 900,
-            height: 600,
-            grid: true,
-            xAxis: { domain: [xmin, xmax] },
-            data: [{
-                fn: f     // sin(x), x^2, etc
-            }]
-        });
-    } catch (err) {
-        alert("Kunde inte rita funktionen. Kontrollera att uttrycket är korrekt.");
-        console.error(err);
+      // Ersätt '^' med '**' för exponent och evaluera funktionen
+      let expr = funcInput.replace(/\^/g, '**').replace(/x/g, `(${x})`);
+      let y = eval(expr);
+      yValues.push(y);
+    } catch (error) {
+      console.error('Fel vid evaluering:', error);
+      yValues.push(null);
     }
+  }
+
+  // Skapa plotten
+  const trace = {
+    x: xValues,
+    y: yValues,
+    type: 'scatter',
+    mode: 'lines',
+    name: 'f(x)'
+  };
+
+  const layout = {
+    title: 'Funktionsplotter',
+    xaxis: { title: 'x' },
+    yaxis: { title: 'f(x)' }
+  };
+
+  Plotly.newPlot('plot', [trace], layout);
 }

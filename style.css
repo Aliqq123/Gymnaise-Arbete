@@ -18,7 +18,7 @@ body {
 }
 .calc-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 5px;
 }
 .calc-grid button {
@@ -28,8 +28,8 @@ body {
     background: #eee;
     cursor: pointer;
     border-radius: 6px;
-    transition: background 0.2s;
 }
+
 .calc-grid button:hover {
     background: #ddd;
 }

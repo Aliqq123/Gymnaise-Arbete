@@ -1,6 +1,4 @@
-// -------------------------------------------------------------
-// --- Calculator ------------------------------------------------
-// -------------------------------------------------------------
+// Calculator
 const calcInput = document.getElementById('calc-input');
 
 // Add button click handlers
@@ -33,10 +31,8 @@ function clearCalc() {
 }
 
 
-// -------------------------------------------------------------
-// --- Function Plotter ------------------------------------------
-// -------------------------------------------------------------
 
+//Graph 
 function plotFunction() {
   const funcInput = document.getElementById('func-input').value;
   const xMin = parseFloat(document.getElementById('xmin').value);
@@ -47,11 +43,12 @@ function plotFunction() {
     return;
   }
 
-  // Skapa x-värden
-  const step = (xMax - xMin) / 200; // 200 punkter
+  // Create x value and y value place holders
+  const step = (xMax - xMin) / 200; // 200 dots
   let xValues = [];
   let yValues = [];
 
+  
   for (let x = xMin; x <= xMax; x += step) {
     xValues.push(x);
     try {
@@ -65,7 +62,7 @@ function plotFunction() {
     }
   }
 
-  // Skapa plotten
+  // Create plot
   const trace = {
     x: xValues,
     y: yValues,
@@ -75,9 +72,9 @@ function plotFunction() {
   };
 
   const layout = {
-    title: 'Funktionsplotter',
+    title: 'Graf',
     xaxis: { title: 'x' },
-    yaxis: { title: 'f(x)' }
+    yaxis: { title: 'y' }
   };
 
   Plotly.newPlot('plot', [trace], layout);

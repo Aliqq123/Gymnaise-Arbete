@@ -49,7 +49,7 @@ Ett webbaserat verktyg som kombinerar en **miniräknare** med en **funktionsplot
 
 ### Funktionsplottern
 
-1. Ange en funktion i formatet `f(x)` (t.ex. `Math.sin(x)`, `x^2`, `2*x+3`).
+1. Ange en funktion i formatet `f(x)` (t.ex. `Math.sin(x)`, `x^2`, `2*x+3`, `Math.asin(x)`).
 2. Ange x-intervallet (från och till).
 3. Tryck på **Rita** för att visa grafen.
 

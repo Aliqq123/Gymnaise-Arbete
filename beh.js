@@ -44,7 +44,7 @@ function plotFunction() {
   }
 
   // Create x value and y value place holders
-  const step = (xMax - xMin) / 200; // 200 dots
+  const step = (xMax - xMin) / 1000; // 1000 dots
   let xValues = [];
   let yValues = [];
 
